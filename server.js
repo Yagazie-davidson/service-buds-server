@@ -26,6 +26,7 @@ app.get("/unkown", (req, res) => {
 	res.json({ error: true });
 });
 
+// get all services
 app.get("/api/services/all", (req, res) => {
 	db.collection("service-buds-services")
 		.find()
