@@ -32,22 +32,24 @@ app.get("/api/services/all", (req, res) => {
 		.find()
 		.toArray()
 		.then(data => {
-			res.json(data);
+			res.json(data).status(200);
 		})
 		.catch(error => {
 			res.json(error);
 		});
 });
 
-app.get("/api/services/:hall", (req, res) => {
-	const hall = req.params.hall;
+app.get("/api/services/filter", (req, res) => {
+	const hall = req.query.hall;
 	db.collection("service-buds-services")
 		.find({ hall: hall })
 		.toArray()
 		.then(data => {
-			res.json(data);
+			res.json(data).status(200);
 		})
-		.catch(res.json({ status: 404, message: "No matching hall found" }));
+		.catch(error => {
+			res.json(error);
+		});
 });
 
 app.post("/api/services/new", (req, res) => {
