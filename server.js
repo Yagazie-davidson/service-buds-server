@@ -26,30 +26,30 @@ app.get("/unkown", (req, res) => {
 	res.json({ error: true });
 });
 
-// get all services
+// get all services and query hall
 app.get("/api/services/all", (req, res) => {
-	db.collection("service-buds-services")
-		.find()
-		.toArray()
-		.then(data => {
-			res.json(data).status(200);
-		})
-		.catch(error => {
-			res.json(error);
-		});
-});
-
-app.get("/api/services/filter", (req, res) => {
-	const hall = req.query.hall;
-	db.collection("service-buds-services")
-		.find({ hall: hall })
-		.toArray()
-		.then(data => {
-			res.json(data).status(200);
-		})
-		.catch(error => {
-			res.json(error);
-		});
+	if (req.query.hall) {
+		const hall = req.query.hall;
+		db.collection("service-buds-services")
+			.find({ hall: hall })
+			.toArray()
+			.then(data => {
+				res.json(data).status(200);
+			})
+			.catch(error => {
+				res.json(error);
+			});
+	} else {
+		db.collection("service-buds-services")
+			.find()
+			.toArray()
+			.then(data => {
+				res.json(data).status(200);
+			})
+			.catch(error => {
+				res.json(error);
+			});
+	}
 });
 
 app.post("/api/services/new", (req, res) => {
