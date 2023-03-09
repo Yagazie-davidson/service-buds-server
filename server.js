@@ -58,6 +58,7 @@ app.post("/api/services/new", (req, res) => {
 		!req.body.service ||
 		!req.body.hall ||
 		!req.body.phone ||
+		!req.body.room ||
 		!req.body.email
 	) {
 		res.json({ status: 500, message: "Please all fields are required" });
@@ -68,6 +69,7 @@ app.post("/api/services/new", (req, res) => {
 				firstName: req.body.firstName,
 				lastName: req.body.lastName,
 				email: req.body.email,
+				room: req.body.room,
 				service: req.body.service,
 				hall: req.body.hall,
 				phone: req.body.phone,
