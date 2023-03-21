@@ -34,4 +34,4 @@ The code base of this repo uses Node JS, Express, MongoDB <br> <br>
    ### Client side Repo
 <a href="https://github.com/Yagazie-davidson/service-buds-client">Client</a>
 
-Please leave a star ⭐️
+Please leave a star ⭐️.
