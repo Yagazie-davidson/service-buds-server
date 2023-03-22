@@ -6,7 +6,7 @@ Students are able to filter the services to get services in a particular hostel.
 Service providers are required to post some certain informations that will be stored in a database
 
 ### 🔖 Tech Stack
-The code base of this repo uses Node JS, Express, MongoDB <br> <br>
+The code base of this repo uses Node JS, Express, MongoDB. <br> <br>
 
 ### Setup
 1. [Fork](https://github.com/Yagazie-davidson/service-buds-server) this repository
