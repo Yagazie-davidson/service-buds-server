@@ -89,3 +89,6 @@ app.post("/api/services/new", (req, res) => {
 app.listen(process.env.PORT || PORT, () => {
   console.log(`Serever is running on port ${PORT}, Better go catch it`);
 });
+
+// Export the Express API
+module.exports = app;
