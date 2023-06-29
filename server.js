@@ -8,12 +8,7 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Enable CORS middleware with specific origin(s)
-const corsOptions = {
-  origin: "https://service-buds-server.vercel.app", // Replace with your desired origin(s)
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 
 let db,
   dbConnectionStr = process.env.DB_STRING,
