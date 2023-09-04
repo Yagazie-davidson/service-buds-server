@@ -10,27 +10,6 @@ app.use(express.json());
 
 app.use(cors());
 
-// Allow cors by vercel
-const allowCors = (fn) => async (req, res) => {
-  res.setHeader("Access-Control-Allow-Credentials", true);
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  // another common pattern
-  // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET,OPTIONS,PATCH,DELETE,POST,PUT"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
-  );
-  if (req.method === "OPTIONS") {
-    res.status(200).end();
-    return;
-  }
-  return await fn(req, res);
-};
-
 let db,
   dbConnectionStr = process.env.DB_STRING,
   dbName = "dev";
@@ -111,7 +90,3 @@ app.post("/api/services/new", (req, res) => {
 app.listen(process.env.PORT || PORT, () => {
   console.log(`Serever is running on port ${PORT}, Better go catch it`);
 });
-
-// Export the Express API
-module.exports = allowCors(app);
-module.exports = app;
